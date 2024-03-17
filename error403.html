@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Třída 6.D</title>
+<style>
+body {
+  margin: 0;
+}
+
+#header {
+  background-color: #001d3d;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+#header:hover {
+  height: 50px;
+}
+
+#header span {
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+#header:hover span {
+  transform: scale(1.5) translate(10px, 10px);
+  color: #E5E8FD;
+}
+
+.button {
+  background-color: #001d3d;
+  color: white;
+  cursor: pointer;
+  padding: 7px 20px;
+  font-weight: bold;
+  font-size: 15px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.button:hover {
+  color: #001d3d; 
+  background-color: #001d3d; 
+  transform: scale(1.2);
+}
+
+.button span.icon {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.button span.text {
+  display: none;
+}
+
+.button:hover span.icon {
+  display: none;
+}
+
+.button:hover span.text {
+  display: inline;
+}
+
+#profil-button {
+  position: absolute;
+  right: 45px; /* Posunutí doleva o 45px */
+}
+
+#error-heading {
+  color: rgb(82, 82, 147);
+}
+
+#description {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 20px;
+  color: #001d3d;
+  position: fixed;
+  top: 100px;
+  left: 30px;
+}
+</style>
+<script>
+window.onload = function() {
+  var text = document.getElementById('header');
+  var fonts = ['Arial Black'];
+  var currentFont = 0;
+
+  function changeFont() {
+    text.style.fontFamily = fonts[currentFont];
+    currentFont = (currentFont + 1) % fonts.length;
+  }
+
+  setInterval(changeFont);
+
+  text.addEventListener('click', function() {
+    window.location.href = '/home';
+  });
+}
+</script>
+</head>
+<body>
+<div id="header">
+  <span>Třída 6.D</span>
+  <div class="button" style="margin-left: 100px;"><a href="/noviny" style="color: white; text-decoration: none;"><span class="icon">🗞️</span><span class="text">noviny</span></a></div>
+  <div class="button"><a href="/info" style="color: white; text-decoration: none;"><span class="icon">ℹ️</span><span class="text">Info</span></a></div>
+  <div class="button"><a href="/images" style="color: white; text-decoration: none;"><span class="icon">🖼️</span><span class="text">Obrázky</span></a></div>
+  <div class="button"><a href="/akce" style="color: white; text-decoration: none;"><span class="icon">🎉</span><span class="text">Akce</span></a></div>
+  <div class="button"><a href="/nahrat" style="color: white; text-decoration: none;"><span class="icon">📁</span><span class="text">Nahrát</span></a></div>
+  <div id="profil-button" class="button"><a href="/profil" style="color: white; text-decoration: none;"><span class="icon">🎇</span><span class="text">Profil</span></a></div>
+</div>
+<div id="description">
+  <h1 id="error-heading">ERROR 403</h1>
+  Omlouváme se, Nemáte dostatečná práva k zobrazení této stránky.
+  <br>
+  Pro pokračování se obraťte na správce systému.
+  <br><br>
+</div>
+
+</body>
+</html>
